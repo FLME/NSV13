@@ -41,7 +41,11 @@
 	if(desc)
 		OM.relay(null, "<span class='notice'><h2>Now entering [name]...</h2></span>")
 		OM.relay(null, "<span class='notice'>[desc]</span>")
-		//If we have an audio cue, ensure it doesn't overlap with a fleet's one...
+	/*if(darksector)
+		//dark_zone = TRUE //I don't trust players so we set this when we arrive to any system. A bit scuffed... but it'll work.
+	if(!darksector)
+		dark_zone = FALSE*/
+	//If we have an audio cue, ensure it doesn't overlap with a fleet's one...
 	if(!audio_cues?.len)
 		return FALSE
 	for(var/datum/fleet/F in fleets)
@@ -189,6 +193,12 @@
 		var/speed = (curr.dist(target_system) / (ftl_drive.jump_speed_factor*10)) //TODO: FTL drive speed upgrades.
 		SSstar_system.ships[src]["to_time"] = world.time + speed MINUTES
 		SEND_SIGNAL(src, COMSIG_FTL_STATE_CHANGE)
+		if((current_system.darksector == FALSE) && (target_system.darksector == TRUE)) //This feels scuffed as fuck, but this basically tells you if you're gonna regain or lose contact and will react accordingly.
+			minor_announce("Warning: [station_name()] leaving communications range.", "White Rapids Fleet Command", 0) //Communicate to the players that they're entering the DZ.
+
+		if((current_system.darksector == TRUE) && (target_system.darksector == FALSE))
+			minor_announce("Contact re-established with [station_name()]", "White Rapids Fleet Command", 0) //Drinks are on me, crew, we've gotten out of there.
+
 		if(role == MAIN_OVERMAP) //Scuffed please fix
 			priority_announce("Attention: All hands brace for FTL translation. Destination: [target_system]. Projected arrival time: [station_time_timestamp("hh:mm", world.time + speed MINUTES)] (Local time)","Automated announcement")
 			if(structure_crit) //Tear the ship apart if theyre trying to limp away.
