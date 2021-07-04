@@ -341,6 +341,7 @@ Returns a faction datum by its name (case insensitive!)
 
 	var/danger_level = 0
 	var/darksector = FALSE //Defines what is out of Whiterapids and centcom communications range. For darksectors - off by default
+	var/knownsystem = TRUE // If true, tells you hyperlane paths and system name. Used for darksectors.
 	var/system_traits = NONE
 	var/is_capital = FALSE
 	var/list/adjacency_list = list() //Which systems are near us, by name
@@ -733,7 +734,7 @@ Welcome to the neutral zone! Non corporate sanctioned traders with better gear a
 	y = 70
 	system_type = "demonstar"
 	alignment = "nanotrasen"
-	adjacency_list = list("Lalande 21185", "Corvi", "Harmony")
+	adjacency_list = list("Lalande 21185", "Corvi")
 	sector = 2
 	is_hypergate = TRUE
 
@@ -751,8 +752,9 @@ Welcome to the neutral zone! Non corporate sanctioned traders with better gear a
 	x = 15
 	y = 55
 	alignment = "nanotrasen"
-	adjacency_list = list("Corvi", "Ariel", "Ida")
+	adjacency_list = list("Corvi", "Ariel", "Ida", "Harmony")
 	preset_trader = /datum/trader/czanekcorp
+	is_hypergate = TRUE //TODO - FIND PLACE THAT ISNT ARGO FOR DZ HYPERGATE
 
 /datum/star_system/sector2/ariel
 	name = "Ariel"
@@ -1128,7 +1130,7 @@ Welcome to the endgame. This sector is the hardest you'll encounter in game and 
 	adjacency_list = list("Rubicon", "Aeterna Victrix")
 
 // <Summary>
-// TRANSMISSIONS JAMMED - PROXIMITY COVERAGE ONLY. The first in a gruelling set of systems home to the Syndicate's trade and research network. Good luck.
+// The first in a gruelling set of systems home to the Syndicate's trade and research network. Good luck.
 // </Summary>
 
 /datum/star_system/dz01
@@ -1136,12 +1138,13 @@ Welcome to the endgame. This sector is the hardest you'll encounter in game and 
 	sector = 4
 	x = 50
 	y = 50
-	darksector = TRUE //Welcome to Hell, fucker.
+	darksector = TRUE //uh oh
+	knownsystem = FALSE
 	alignment = "unaligned"
 	is_hypergate = TRUE
 	threat_level = THREAT_LEVEL_NONE
 	audio_cues = "https://www.youtube.com/watch?v=xh1nAT4EvMc" //The Division - Dark Zone
-	adjacency_list = list("Feliciana", "Watchdog")
+	adjacency_list = list("Argo", "Watchdog")
 	desc = "A massive expanse of systems stands before you, familiar only to your enemy."
 
 /datum/star_system/dz01/Watchdog
@@ -1151,7 +1154,16 @@ Welcome to the endgame. This sector is the hardest you'll encounter in game and 
 	alignment = "syndicate"
 	threat_level = THREAT_LEVEL_UNSAFE
 	is_hypergate = FALSE
-	adjacency_list = list("Harmony")
+	adjacency_list = list("Harmony", "Powernugget")
 	fleet_type = /datum/fleet/border
+
+/datum/star_system/dz01/powernugget
+	name = "Powernugget" //TODO: CHANGE THIS.
+	x = 30
+	y = 75
+	alignment = "unaligned"
+	threat_level = THREAT_LEVEL_NONE
+	is_hypergate = FALSE
+	adjacency_list = list("Watchdog")
 
 #define ALL_STARMAP_SECTORS 1,2,3,4 //KEEP THIS UPDATED.

@@ -52,6 +52,11 @@ export const Astrometrics = (props, context) => {
                 icon="map"
                 onClick={() =>
                   act('map')} />
+			  <Button
+                content="Change Sector"
+                icon="bullseye"
+                onClick={() =>
+                  act('sector')} />
               <Section title={`Current scan: ${data.scan_target}`}
                 buttons={(
                   <Button
@@ -84,6 +89,11 @@ export const Astrometrics = (props, context) => {
                 ilstyle="position:absolute;left:10px"
                 onClick={() =>
                   act('map')} />
+			  <Button
+                content="Change Sector"
+                icon="bullseye"
+                onClick={() =>
+                  act('sector')} />
               <Map initial_focus_x={data.focus_x}
                 initial_focus_y={data.focus_y}
                 initial_scale_factor={12}>
@@ -169,6 +179,11 @@ export const Astrometrics = (props, context) => {
                 onClick={() =>
                   act('map')} />
               <br />
+			  <Button
+                content="Change Sector"
+                icon="bullseye"
+                onClick={() =>
+                  act('sector')} />
               <Section title={`Current scan: ${data.scan_target}`}
                 buttons={(
                   <Button

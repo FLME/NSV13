@@ -140,9 +140,6 @@
 		return
 	switch(action)
 		if("send")
-			if(current_system.darksector == TRUE)
-				say("Task failed: unable to establish link with Central Command.") //No supply shuttle in the dark sector.
-				return //TODO: See if there's a better way to make getting supplies challenging, than to make an entire department irrelevant.
 			if(!SSshuttle.supply.canMove())
 				say(safety_warning)
 				return

@@ -123,6 +123,9 @@ Clean override of the navigation computer to provide scan functionality.
 			playsound(src, 'nsv13/sound/voice/scanning_complete.wav', 100, FALSE)
 			radio.talk_into(src, "Scan of [scan_target] complete!", channel)
 			scanned += scan_target.name
+			if(scan_target.knownsystem == FALSE)
+				scan_target.knownsystem = TRUE // We've scanned the system, so the people can access information, like phaselines, on it now.
+				radio.talk_into(src, "System information updated.", channel)
 			if(istype(scan_target, /obj/effect/overmap_anomaly))
 				var/obj/effect/overmap_anomaly/OA = scan_target
 				if(OA.research_points > 0 && !OA.scanned) //In case someone else did a scan on it already.
@@ -133,3 +136,23 @@ Clean override of the navigation computer to provide scan functionality.
 			scan_target = null
 			scan_progress = 0
 			return
+
+/obj/machinery/computer/ship/navigation/astrometrics/ui_act(action, params, datum/tgui/ui) // FUCK FUCK FUCK FUCK FUCK FUCK FUCK FUCK FUCK
+	.=..()
+	if(..())
+		return
+	if(!has_overmap())
+		return
+	switch(action)
+		if("sector")
+			var/sector = input(usr, "Swap to what sector?","Sector Selection", null) as null|anything in list(ALL_STARMAP_SECTORS)
+			if(!sector)
+				return
+			current_sector = sector
+		if("select_system")
+			var/datum/star_system/target = locate(params["star_id"])
+			if(!istype(target))
+				return
+			selected_system = target
+			screen = 2
+			. = TRUE

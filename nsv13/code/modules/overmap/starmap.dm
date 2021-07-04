@@ -138,6 +138,8 @@
 				if(!sys)
 					message_admins("[thename] exists in a system adjacency list, but does not exist. Go create a starsystem datum for it.")
 					continue
+				if((system != current_system) && (system.knownsystem == FALSE)) // There should never be a case where you're in a system and it's not a known system. But I like my funny logic gates and it shouldn't cause problems.
+					continue
 				var/is_wormhole = (LAZYFIND(sys.wormhole_connections, system.name) || LAZYFIND(system.wormhole_connections, sys.name))
 				var/is_bidirectional = (LAZYFIND(sys.adjacency_list, system.name) && LAZYFIND(system.adjacency_list, sys.name))
 				if((!is_bidirectional && system != current_system) || sys.hidden || sys.sector != system.sector) //Secret One way wormholes show you faint, purple paths.
@@ -148,6 +150,9 @@
 					if(is_wormhole)
 						thecolour = "#BA55D3"
 						opacity = 0.85
+				if(system.darksector)
+					thecolour = "#cfcfcf"
+					opacity = 0.85
 				//	else //Couldnt get this to work :/
 					//	to_chat(world, "[thename] is in [current_system]")
 					//	thecolour = "#193a7a"
