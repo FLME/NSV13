@@ -52,7 +52,7 @@ export const Astrometrics = (props, context) => {
                 icon="map"
                 onClick={() =>
                   act('map')} />
-			  <Button
+              <Button
                 content="Change Sector"
                 icon="bullseye"
                 onClick={() =>
@@ -89,7 +89,7 @@ export const Astrometrics = (props, context) => {
                 ilstyle="position:absolute;left:10px"
                 onClick={() =>
                   act('map')} />
-			  <Button
+              <Button
                 content="Change Sector"
                 icon="bullseye"
                 onClick={() =>
@@ -179,7 +179,7 @@ export const Astrometrics = (props, context) => {
                 onClick={() =>
                   act('map')} />
               <br />
-			  <Button
+              <Button
                 content="Change Sector"
                 icon="bullseye"
                 onClick={() =>
