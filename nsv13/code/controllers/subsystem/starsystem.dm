@@ -1130,40 +1130,103 @@ Welcome to the endgame. This sector is the hardest you'll encounter in game and 
 	adjacency_list = list("Rubicon", "Aeterna Victrix")
 
 // <Summary>
-// The first in a gruelling set of systems home to the Syndicate's trade and research network. Good luck.
+// DARKZONE PLANETS START HERE!
 // </Summary>
 
 /datum/star_system/dz01
 	name = "Harmony"
 	sector = 4
 	x = 50
-	y = 50
+	y = 35
 	darksector = TRUE //uh oh
 	knownsystem = FALSE
 	alignment = "unaligned"
 	is_hypergate = TRUE
 	threat_level = THREAT_LEVEL_NONE
 	audio_cues = "https://www.youtube.com/watch?v=xh1nAT4EvMc" //The Division - Dark Zone
-	adjacency_list = list("Argo", "Watchdog")
+	adjacency_list = list("Argo", "p01")
 	desc = "A massive expanse of systems stands before you, familiar only to your enemy."
 
-/datum/star_system/dz01/Watchdog
-	name = "Watchdog"
-	x = 30
-	y = 55
+/datum/star_system/dz01/p01
+	name = "p01"
+	x = 50
+	y = 50
 	alignment = "syndicate"
 	threat_level = THREAT_LEVEL_UNSAFE
 	is_hypergate = FALSE
-	adjacency_list = list("Harmony", "Powernugget")
-	fleet_type = /datum/fleet/border
+	adjacency_list = list("Harmony", "p02", "p08", "p09")
 
-/datum/star_system/dz01/powernugget
-	name = "Powernugget" //TODO: CHANGE THIS.
-	x = 30
-	y = 75
+/datum/star_system/dz01/p02
+	name = "p02"
+	x = 60
+	y = 50
 	alignment = "unaligned"
-	threat_level = THREAT_LEVEL_NONE
+	threat_level = THREAT_LEVEL_UNSAFE
 	is_hypergate = FALSE
-	adjacency_list = list("Watchdog")
+	adjacency_list = list("p01", "p03")
+	fleet_type = /datum/fleet/nanotrasen/patrol
+
+/datum/star_system/dz01/p03
+	name = "p03"
+	x = 60
+	y = 60
+	alignment = "unaligned"
+	threat_level = THREAT_LEVEL_UNSAFE
+	is_hypergate = FALSE
+	adjacency_list = list("p02", "p04")
+
+/datum/star_system/dz01/p04
+	name = "p04"
+	x = 60
+	y = 70
+	alignment = "unaligned"
+	threat_level = THREAT_LEVEL_UNSAFE
+	is_hypergate = FALSE
+	adjacency_list = list("p03", "p05")
+
+/datum/star_system/dz01/p05
+	name = "p05"
+	x = 50
+	y = 70
+	alignment = "unaligned"
+	threat_level = THREAT_LEVEL_UNSAFE
+	is_hypergate = FALSE
+	adjacency_list = list("p04", "p06", "p09")
+
+/datum/star_system/dz01/p06
+	name = "p06"
+	x = 40
+	y = 70
+	alignment = "unaligned"
+	threat_level = THREAT_LEVEL_UNSAFE
+	is_hypergate = FALSE
+	adjacency_list = list("p05", "p07")
+
+/datum/star_system/dz01/p07
+	name = "p07"
+	x = 40
+	y = 60
+	alignment = "unaligned"
+	threat_level = THREAT_LEVEL_UNSAFE
+	is_hypergate = FALSE
+	adjacency_list = list("p06", "p08")
+
+/datum/star_system/dz01/p08
+	name = "p08"
+	x = 40
+	y = 50
+	alignment = "unaligned"
+	threat_level = THREAT_LEVEL_UNSAFE
+	is_hypergate = FALSE
+	adjacency_list = list("p07", "p01")
+
+/datum/star_system/dz01/p09
+	name = "p09"
+	x = 50
+	y = 60
+	alignment = "unaligned"
+	threat_level = THREAT_LEVEL_UNSAFE
+	is_hypergate = FALSE
+	adjacency_list = list("p01", "p05")
 
 #define ALL_STARMAP_SECTORS 1,2,3,4 //KEEP THIS UPDATED.

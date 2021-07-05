@@ -117,7 +117,10 @@
 			system_list["y"] = system.y
 			system_list["star_id"] = "\ref[system]"
 			system_list["is_current"] = (system == current_system)
-			system_list["alignment"] = system.alignment
+			if(system.knownsystem == FALSE)
+				system_list["alignment"] = "syndicate"
+			else
+				system_list["alignment"] = system.alignment
 			system_list["visited"] = is_visited(system)
 			var/label = ""
 			if(system.is_hypergate)

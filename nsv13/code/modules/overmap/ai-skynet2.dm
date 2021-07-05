@@ -586,6 +586,13 @@ GLOBAL_LIST_EMPTY(ai_goals)
 	name = "Nanotrasen light fleet"
 	battleship_types = list(/obj/structure/overmap/nanotrasen/patrol_cruiser/ai)
 
+/datum/fleet/nanotrasen/patrol //Dark-zone friendly fleet. Light, but somewhat numerous.
+	name = "Whiterapids light patrol fleet"
+	fighter_types = list(/obj/structure/overmap/nanotrasen/solgov/ai/fighter, /obj/structure/overmap/nanotrasen/solgov/ai/fighter)
+	destroyer_types = list(/obj/structure/overmap/nanotrasen/ai, /obj/structure/overmap/nanotrasen/ai, /obj/structure/overmap/nanotrasen/heavy_cruiser/ai)
+	supply_types = list(/obj/structure/overmap/nanotrasen/solgov/carrier/ai) //Y'know what, if Nanotrasen is given the Aether then I think they can have this.
+	fleet_trait = FLEET_TRAIT_DEFENSE
+
 /datum/fleet/nanotrasen/border
 	name = "Concord Border Enforcement Unit"
 	taunts = list("You have violated the law. Stand down your weapons and prepare to be boarded.", "Hostile vessel. Stand down immediately or be destroyed.")
