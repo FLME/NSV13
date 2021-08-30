@@ -61,6 +61,10 @@ map Eclipse
 
 endmap
 
+map Unyielding
+
+endmap
+
 map destroyer
 
 endmap

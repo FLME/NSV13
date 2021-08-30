@@ -31,7 +31,11 @@
 		//Galactica
 		#include "map_files\Galactica\Galactica1.dmm"
 		#include "map_files\Galactica\Galactica2.dmm"
-
+		
+		//Unyielding
+		#include "map_files\Galactica\Unyielding1.dmm"
+		#include "map_files\Galactica\Unyielding2.dmm"
+		
 		#ifdef CIBUILDING
 			#include "templates.dm"
 		#endif
