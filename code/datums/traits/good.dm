@@ -95,7 +95,8 @@
 		"hands" = ITEM_SLOT_HANDS,
 	)
 	H.equip_in_one_of_slots(B, slots , qdel_on_fail = TRUE)
-
+//Nsv13
+/* Commenting this out so that we can get actual selectable languages without me nuking this code.
 /datum/quirk/multilingual
 	name = "Multilingual"
 	desc = "You spent a portion of your life learning to understand an additional language. You may or may not be able to speak it based on your anatomy."
@@ -117,7 +118,16 @@
 			var/datum/language/random_language = pick(languages_possible)
 			H.grant_language(random_language, TRUE, TRUE, LANGUAGE_MULTILINGUAL)
 //Credit To Yowii/Yoworii/Yorii for a much more streamlined method of language library building
+*/
 
+/datum/quirk/multilingual_uncommon
+	name = "Multilingual (Uncommon)
+	desc = "You spent a portion of your life learning to understand Galactic Uncommon."
+	value = 1
+	mob_trait = TRAIT_MULTILINGUAL
+	gain_text = "<span class='notice'>You have learned to understand the Uncommon language.</span>"
+	lose_text = "<span class='danger'>You have forgotten how to understand Uncommon.</span>"
+// /Nsv13
 /datum/quirk/night_vision
 	name = "Night Vision"
 	desc = "You can see slightly more clearly in full darkness than most people."
