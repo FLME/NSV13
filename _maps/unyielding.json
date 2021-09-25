@@ -11,7 +11,8 @@
 	    "emergency": "emergency_donut"},
     "mine_file": "Rook.dmm",
     "mine_path": "map_files/Mining/nsv13",
-	"ship_type": "/obj/structure/overmap/nanotrasen/solgov/aetherwhisp/starter",
+	"ship_type": "/obj/structure/overmap/nanotrasen/empire/battleship/starter",
 	"mining_ship_type": "/obj/structure/overmap/nanotrasen/mining_cruiser/rocinante",
 	"faction": "solgov"
 }
+ 

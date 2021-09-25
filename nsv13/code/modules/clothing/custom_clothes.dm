@@ -708,3 +708,14 @@
 		item_color = initial(item_color)
 		item_state = initial(item_state)
 		toggled = TRUE
+
+
+//Empire
+
+/obj/item/clothing/under/ship/empire
+	name = "Draconic nonessential work uniform"
+	desc = "An uncomfortable, standard work uniform given to crewmen aboard ships of the Empire. The upper chest is lightly armored."
+	icon_state = "draconic_nones"
+	item_color = "draconic_nones"
+	item_state = "draconic_nones"
+	armor = list("melee" = 5, "bullet" = 5)

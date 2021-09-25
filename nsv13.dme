@@ -3420,6 +3420,7 @@
 #include "nsv13\code\modules\overmap\fleet_combat\dice_datum.dm"
 #include "nsv13\code\modules\overmap\fleet_combat\solar_siege.dm"
 #include "nsv13\code\modules\overmap\ship_areas\badmiral.dm"
+#include "nsv13\code\modules\overmap\types\empire.dm"
 #include "nsv13\code\modules\overmap\types\miningships.dm"
 #include "nsv13\code\modules\overmap\types\nanotrasen.dm"
 #include "nsv13\code\modules\overmap\types\solgov.dm"
